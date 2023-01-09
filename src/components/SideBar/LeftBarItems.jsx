@@ -8,7 +8,7 @@ const LeftBarItems = ({ toggleMenu, text, icon, action, selectedCategory }) => {
         selectedCategory === text ? "bg-white/[0.15]" : ""
       }`}
     >
-      <span className="text-lg">{icon}</span>
+      <span className={`text-lg ${!toggleMenu && "ml-[-3px]"} `}>{icon}</span>
       {toggleMenu && (text === "New" ? "Home" : text)}
       {}
     </div>

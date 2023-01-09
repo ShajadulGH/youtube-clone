@@ -18,7 +18,7 @@ const LeftBar = () => {
   };
   return (
     <div
-      className={` md:block w-[240px] h-full overflow-y-auto py-4 absolute md:relative bg-black translate-x-[-240px] md:translate-x-[0px] md:w-[80px] transition-all ${
+      className={` md:block w-[240px] h-full overflow-y-auto no-scrollbar py-4 absolute md:relative bg-black translate-x-[-240px] md:translate-x-[0px] md:w-[80px] transition-all ${
         toggleMenu ? "translate-x-0 md:w-[240px] " : ""
       }`}
     >
