@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { SlMenu } from "react-icons/sl";
 import { IoIosSearch } from "react-icons/io";
 import { CgClose } from "react-icons/cg";
-import Context from "../context/context";
+import Context from "../../context/context";
 import { Link } from "react-router-dom";
-import YoutubeLogo from "../images/yt-logo.png";
-import YoutubeLogoMobile from "../images//yt-logo-mobile.png";
+import YoutubeLogo from "../../images/yt-logo.png";
+import YoutubeLogoMobile from "../../images//yt-logo-mobile.png";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 const Header = () => {

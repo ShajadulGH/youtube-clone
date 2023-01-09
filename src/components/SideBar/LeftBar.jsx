@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import LeftBarItems from "./LeftBarItems";
+import LeftBarItems from "../SideBar/LeftBarItems";
 import { useContext } from "react";
-import { categories } from "../utils/sidebar-items";
-import Context from "../context/context";
+import { categories } from "../../utils/sidebar-items";
+import Context from "../../context/context";
 const LeftBar = () => {
   const { toggleMenu, setSelectedCategory, selectedCategory } =
     useContext(Context);

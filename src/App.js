@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Feed from "./components/Feed";
-import Header from "./components/Header";
+import Feed from "./components/Feed/Feed";
+import Header from "./components/Header/Header";
 import { ContextProvider } from "./context/context";
 function App() {
   return (

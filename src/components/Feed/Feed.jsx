@@ -1,5 +1,5 @@
 import React from "react";
-import LeftBar from "./LeftBar";
+import LeftBar from "../SideBar/LeftBar";
 function Feed() {
   return (
     <div className=" flex flex-row h-[calc(100%-56px)]">
