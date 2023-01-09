@@ -24,7 +24,7 @@ const LeftBar = () => {
     >
       <div className=" flex flex-col px-5">
         {categories.map((item) => (
-          <Fragment>
+          <Fragment key={item.name}>
             <LeftBarItems
               text={item.name}
               icon={item.icon}

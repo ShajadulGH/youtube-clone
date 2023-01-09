@@ -7,14 +7,14 @@ export const ContextProvider = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("Quran");
   const [toggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
-    getSelectedCategory(selectedCategory);
+    // getSelectedCategory(selectedCategory);
   }, [selectedCategory]);
-  const getSelectedCategory = (category) => {
-    // getDataFromApi(`search/?q=${category}`).then(({ contents }) => {
-    //   console.log(contents);
-    // });
-  };
-  console.log(selectedCategory);
+  // const getSelectedCategory = (category) => {
+  //   getDataFromApi(`search/?q=${category}`).then(({ contents }) => {
+  //     setSearchResults(contents);
+  //   });
+  // };
+  console.log(searchResults);
   return (
     <Context.Provider
       value={{
