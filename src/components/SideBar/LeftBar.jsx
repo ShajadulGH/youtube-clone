@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { categories } from "../../utils/sidebar-items";
 import Context from "../../context/context";
 const LeftBar = () => {
-  const { toggleMenu, setSelectedCategory, selectedCategory } =
+  const { toggleMenu, setToggleMenu, setSelectedCategory, selectedCategory } =
     useContext(Context);
   const onClickAction = (type, name) => {
     switch (type) {
@@ -28,7 +28,10 @@ const LeftBar = () => {
             <LeftBarItems
               text={item.name}
               icon={item.icon}
-              action={() => onClickAction(item.type, item.name)}
+              action={() => {
+                onClickAction(item.type, item.name);
+                setToggleMenu(!toggleMenu);
+              }}
               selectedCategory={selectedCategory}
               toggleMenu={toggleMenu}
             />
