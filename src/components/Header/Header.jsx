@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { SlMenu } from "react-icons/sl";
 import { IoIosSearch } from "react-icons/io";
 import { CgClose } from "react-icons/cg";
@@ -9,8 +9,18 @@ import YoutubeLogoMobile from "../../images//yt-logo-mobile.png";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 const Header = () => {
-  const { toggleMenu, setToggleMenu } = useContext(Context);
-  console.log(toggleMenu);
+  const { toggleMenu, setToggleMenu, setSelectedCategory } =
+    useContext(Context);
+  const searchRef = useRef();
+  const searchHandler = (e) => {
+    if (
+      searchRef.current.value.trim().length !== 0 &&
+      (e.key === "Enter" || e === "search")
+    ) {
+      setSelectedCategory(searchRef.current.value);
+      searchRef.current.value = "";
+    }
+  };
   const toggleHandler = () => {
     setToggleMenu(!toggleMenu);
   };
@@ -43,11 +53,16 @@ const Header = () => {
             <IoIosSearch />
           </div>
           <input
+            onKeyUp={searchHandler}
+            ref={searchRef}
             type="text"
             className=" bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]"
           />
         </div>
-        <button className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-white/0.1">
+        <button
+          onClick={() => searchHandler("search")}
+          className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-white/0.1"
+        >
           <IoIosSearch />
         </button>
       </div>

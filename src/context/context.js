@@ -14,6 +14,7 @@ export const ContextProvider = (props) => {
     //   console.log(contents);
     // });
   };
+  console.log(selectedCategory);
   return (
     <Context.Provider
       value={{
