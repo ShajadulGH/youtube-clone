@@ -4,10 +4,8 @@ const Context = React.createContext();
 export const ContextProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(
-    "Abdur Razzak Bin Yousuf"
-  );
-  const [toggleMenu, setToggleMenu] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("Quran");
+  const [toggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
     getSelectedCategory(selectedCategory);
   }, [selectedCategory]);
