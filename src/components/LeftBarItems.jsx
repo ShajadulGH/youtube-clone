@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftBarItems = ({ text, icon, action, selectedCategory }) => {
+const LeftBarItems = ({ toggleMenu, text, icon, action, selectedCategory }) => {
   return (
     <div
       onClick={action}
@@ -9,7 +9,8 @@ const LeftBarItems = ({ text, icon, action, selectedCategory }) => {
       }`}
     >
       <span className="text-lg">{icon}</span>
-      {text === "New" ? "Home" : text}
+      {toggleMenu && (text === "New" ? "Home" : text)}
+      {}
     </div>
   );
 };
