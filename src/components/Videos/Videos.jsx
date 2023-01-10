@@ -1,19 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import VideoDuration from "./VideoDuration";
-
-const Videos = () => {
+import { BsFillCheckCircleFill } from "react-icons/bs";
+import { abbreviateNumber } from "js-abbreviation-number";
+const Videos = ({ video }) => {
   return (
-    <Link>
+    <Link to={`/video/${video?.videoId}`}>
       <div className="flex flex-col mb-8">
         {/* Thumbnail */}
         <div className=" relative h-48 md:h-40 md:rounded-xl overflow-hidden">
           <img
             className="h-full w-full object-cover"
-            src="https://i.ytimg.com/vi/KA8e26WBRVA/hqdefault.jpg?s%E2%80%A6AFwAcABBg==&rs=AOn4CLDMSBUhSiEK-SpuBGd047PPARiiAw"
+            src={video?.thumbnails?.[0]?.url}
             alt="thumbnail"
           />
-          <VideoDuration />
+          {video?.lengthSeconds && (
+            <VideoDuration length={video?.lengthSeconds} />
+          )}
         </div>
         {/* Video Title, Channel etc. */}
         <div className="  flex flex-row mt-3">
@@ -21,22 +24,31 @@ const Videos = () => {
             <div className=" flex h-9 w-9 rounded-full overflow-hidden">
               <img
                 className=" h-full w-full object-cover"
-                src="https://yt3.ggpht.com/8Lwf4LCR2VmxD2JKiozRu7Lo2jGdnhRs42NawHmMN_xJ8TdW-30e3J9DhumEksivp1Esog4A=s88-c-k-c0x00ffffff-no-rj"
+                src={video?.author?.avatar?.[0]?.url}
                 alt="author"
               />
             </div>
           </div>
           <div className=" flex flex-col">
-            <div className=" line-clamp-2">
-              Abbur Razzak Bin Yousuf - Lorem ipsum dolor sit amet consectetur
-              dolor sit amet consectetur
-            </div>
-            <div className="">Shajadul Karim Bhuiyan</div>
+            <span className=" line-clamp-2 text-[18px] font-bold mb-3">
+              {" "}
+              {video?.title}
+            </span>
+            <span className=" flex items-center gap-1 text-[14px] text-white/[0.7] mb-[5px]">
+              {video?.author?.title}
+              {video?.author?.badges?.[0]?.type === "VERIFIED_CHANNEL" && (
+                <BsFillCheckCircleFill className=" text-white/[0.7] text-[14px]" />
+              )}
+            </span>
 
-            <div className=" flex flex-row gap-2">
-              <div className="">Views 1.2m</div>
-              <div className="">.</div>
-              <div className="">2 years ago</div>
+            <div className=" flex flex-row gap-2 text-white/[0.7] text-[14px] items-center">
+              <span className="">
+                {abbreviateNumber(video?.stats?.views, 1)} Views
+              </span>
+              <span className=" font-bold text-[14px] mb-[4px] mr-[-3px] ml-[-3px]">
+                .
+              </span>
+              <span className="">{video?.publishedTimeText}</span>
             </div>
           </div>
         </div>

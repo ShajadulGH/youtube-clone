@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { getDataFromApi } from "../utils/api";
+import { getDataFromApi } from "../utils/api";
 const Context = React.createContext();
 export const ContextProvider = (props) => {
   const [loading, setLoading] = useState(false);
@@ -7,13 +7,15 @@ export const ContextProvider = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("Quran");
   const [toggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
-    // getSelectedCategory(selectedCategory);
+    setLoading(true);
+    getSelectedCategory(selectedCategory);
   }, [selectedCategory]);
-  // const getSelectedCategory = (category) => {
-  //   getDataFromApi(`search/?q=${category}`).then(({ contents }) => {
-  //     setSearchResults(contents);
-  //   });
-  // };
+  const getSelectedCategory = (category) => {
+    getDataFromApi(`search/?q=${category}`).then(({ contents }) => {
+      setSearchResults(contents);
+      setLoading(false);
+    });
+  };
   console.log(searchResults);
   return (
     <Context.Provider
