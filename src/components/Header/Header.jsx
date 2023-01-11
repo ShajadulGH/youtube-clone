@@ -9,8 +9,9 @@ import YoutubeLogoMobile from "../../images//yt-logo-mobile.png";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../utils/Loader";
 const Header = () => {
-  const { toggleMenu, setToggleMenu, setSelectedCategory } =
+  const { toggleMenu, setToggleMenu, setSelectedCategory, loading } =
     useContext(Context);
   const searchRef = useRef();
   const navigate = useNavigate();
@@ -29,6 +30,8 @@ const Header = () => {
   };
   return (
     <div className="bg-black text-white h-14 flex justify-between items-center px-4 sticky">
+      {/* Loader */}
+      {loading && <Loader />}
       {/* Menu and Logo */}
       <div className=" flex h-5 items-center  ">
         {/* Menu */}
