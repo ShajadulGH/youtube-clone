@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Context from "../../context/context";
 import LeftBar from "../SideBar/LeftBar";
 import Videos from "../Videos/Videos";
 
 function Feed() {
   const { searchResults, loading } = useContext(Context);
+  useEffect(() => {
+    document.getElementById("root").classList.remove("custom-h");
+  }, []);
   return (
     <div className=" flex flex-row h-[calc(100%-56px)] ">
       <LeftBar />
