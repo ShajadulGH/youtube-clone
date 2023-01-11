@@ -3,9 +3,11 @@ import LeftBarItems from "../SideBar/LeftBarItems";
 import { useContext } from "react";
 import { categories } from "../../utils/sidebar-items";
 import Context from "../../context/context";
+import { useNavigate } from "react-router-dom";
 const LeftBar = () => {
   const { toggleMenu, setToggleMenu, setSelectedCategory, selectedCategory } =
     useContext(Context);
+  const navigate = useNavigate();
   const onClickAction = (type, name) => {
     switch (type) {
       case "home":
@@ -31,6 +33,7 @@ const LeftBar = () => {
               action={() => {
                 onClickAction(item.type, item.name);
                 setToggleMenu(!toggleMenu);
+                navigate("/");
               }}
               selectedCategory={selectedCategory}
               toggleMenu={toggleMenu}

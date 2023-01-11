@@ -8,16 +8,19 @@ import YoutubeLogo from "../../images/yt-logo.png";
 import YoutubeLogoMobile from "../../images//yt-logo-mobile.png";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
   const { toggleMenu, setToggleMenu, setSelectedCategory } =
     useContext(Context);
   const searchRef = useRef();
+  const navigate = useNavigate();
   const searchHandler = (e) => {
     if (
       searchRef.current.value.trim().length !== 0 &&
       (e.key === "Enter" || e === "search")
     ) {
       setSelectedCategory(searchRef.current.value);
+      navigate("/");
       searchRef.current.value = "";
     }
   };
