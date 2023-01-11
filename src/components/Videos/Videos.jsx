@@ -31,7 +31,6 @@ const Videos = ({ video }) => {
           </div>
           <div className=" flex flex-col">
             <span className=" line-clamp-2 text-[18px] font-bold mb-3">
-              {" "}
               {video?.title}
             </span>
             <span className=" flex items-center gap-1 text-[14px] text-white/[0.7] mb-[5px]">
